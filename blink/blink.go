@@ -19,6 +19,7 @@ void toggleLED(int state){
 import "C"
 
 func Blink(pin int, state int){
-	C.setupPin(C.int(pin))
+	//Only using 0 for now
+	C.setupPin(C.int(0))
 	C.toggleLED(C.int(state))
 }
