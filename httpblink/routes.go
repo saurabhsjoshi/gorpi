@@ -71,8 +71,8 @@ var routes = Routes{
 }
 
 func toggleLed(w http.ResponseWriter, r *http.Request){
-	pin,err := strconv.ParseInt(r.FormValue("pin"), 10, 64)
-	state,err2 := strconv.ParseInt(r.FormValue("state"), 10, 64)
+	pin,err := strconv.ParseInt(r.FormValue("pin"), 10, 32)
+	state,err2 := strconv.ParseInt(r.FormValue("state"), 10, 32)
 
 
 	if(err != nil || err2 != nil){
