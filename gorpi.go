@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/saurabhsjoshi/gorpi/blink"
+	"github.com/saurabhsjoshi/gorpi/httpblink"
 	"os"
 	"flag"
 	"fmt"
@@ -9,6 +10,8 @@ import (
 
 func main(){
 	f_blink := flag.Bool("blink", false, "Toggles the LED")
+	f_http := flag.Bool("http", false, "Starts http server")
+	f_port := flag.String("port", "8080", "HTTP port (Optional)")
 	f_pin := flag.Int("pin", -1, "Pin number")
 	f_pinState := flag.Int("state", -1, "Pin state 0 = OFF and 1 = ON")
 	flag.Parse()
@@ -28,6 +31,8 @@ func main(){
 			os.Exit(0)
 		}
 
+	} else if(*f_http == true){
+		httpblink.StartServer(*f_port)
 	}
 
 
