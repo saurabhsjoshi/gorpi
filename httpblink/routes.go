@@ -81,7 +81,7 @@ func toggleLed(w http.ResponseWriter, r *http.Request){
 	}
 
 	if(state == 0 || state == 1){
-		blink.Blink(pin, state)
+		blink.BlinkRelay(pin, state)
 		json.NewEncoder(w).Encode(newSuccessStatus())
 	}
 }
